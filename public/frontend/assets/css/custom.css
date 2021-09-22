@@ -1,0 +1,39 @@
+.primary-color {
+	color: red;
+}
+
+/* mobile */
+@media (max-width: 994px) {
+	.message-reply textarea {
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	}
+	
+	.message-reply button {
+	    position: fixed;
+	    bottom: 0;
+	    right: 0;
+	}
+}
+
+.message-reply textarea {
+    position: fixed;
+    bottom: 5px;
+    max-width: 65%;
+}
+
+.message-reply button {
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    max-width: 30%;
+}
+
+.uk-transition-fade, [class*='uk-transition-scale'], [class*='uk-transition-slide'] {
+	opacity: 1;
+}
+
+.hidden {
+	display: none;
+}
