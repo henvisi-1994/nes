@@ -21,7 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return 'registration temporarily disabled';
+        //return 'registration temporarily disabled';
         return view('auth.register');
     }
 
@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
-    {return 'registration temporarily disabled';
+    { //return 'registration temporarily disabled';
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
