@@ -27,6 +27,7 @@ class ConocerController extends Controller
         $notifications = NotificationsController::getNotificationsLikes();
         $notifications_messages = NotificationsController::getNotificationsMessages();
         $messages = null;
+        $isactive = 'conocer';
 
         return view('conocer', compact(
             [
@@ -35,7 +36,8 @@ class ConocerController extends Controller
                 'stars',
                 'notifications',
                 'notifications_messages',
-                'messages'
+                'messages',
+                'isactive'
             ]
         ));
     }

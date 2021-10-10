@@ -35,7 +35,19 @@ class ProfileController extends Controller
         $notifications = NotificationsController::getNotificationsLikes();
         $notifications_messages = NotificationsController::getNotificationsMessages();
         $user = DB::table('users')->select(array("id", "name", "gender", "country", "city", "birthday", "image"))->where('id', '=', $id)->get();
-        return view('public_profile', compact('user', 'notifications', 'notifications_messages'));
+        $stars_ = DB::table('star')->select('starred_user_id')->where('userid', Auth::user()->id)->get();
+        $likes_ = DB::table('likes')->select('liked_user_id')->where('userid', Auth::user()->id)->get();
+        $likes = [];
+        foreach (json_decode($likes_, true) as $v) array_push($likes, $v["liked_user_id"]);
+        $stars = [];
+        foreach (json_decode($stars_, true) as $v) array_push($stars, $v["starred_user_id"]);
+        return view('public_profile', compact(
+            'user',
+            'notifications',
+            'notifications_messages',
+            'likes',
+            'stars',
+        ));
     }
 
     public function update(Request $request)
